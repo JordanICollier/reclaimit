@@ -1,5 +1,2 @@
-require "reclaimit/version"
-
-module Reclaimit
-  # Your code goes here...
-end
+require_relative './reclaimit/version.rb'
+require_relative './reclaimit/fetcher.rb'

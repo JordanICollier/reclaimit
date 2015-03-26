@@ -1,11 +1,6 @@
-require 'faraday'
-require 'json'
-require 'dotenv'
-Dotenv.load
-
 module Reclaimit
 
-  class Reclaimit
+  class Fetcher
 
     attr_accessor :comments
 

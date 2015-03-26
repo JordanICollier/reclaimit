@@ -17,7 +17,6 @@ module Reclaimit
     def subreddit
       response = @reddit.get do |req|
         req.url "/r/#{@subreddit}.json"
-        req.headers['Reddit-Token'] = ENV['REDDIT_TOKEN']
         req.headers['Content-Type'] = 'application/json'
       end
 

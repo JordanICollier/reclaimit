@@ -1,11 +1,12 @@
 require 'faraday'
 require 'json'
 require 'dotenv'
+
 Dotenv.load
 
 module Reclaimit
 
-  class Reclaimit
+  class Fetcher
 
     attr_accessor :comments
 
@@ -25,19 +26,13 @@ module Reclaimit
         req.headers['Reddit-Token'] = ENV['REDDIT_TOKEN']
         req.headers['Content-Type'] = 'application/json'
       end
-
-      JSON.parse(response.body)
+    
+      JSON.parse(response.body)["data"]["children"].map do |post_data|
+        Post.new(post_data)
+      end
     end
 
-    # def first_layer
-    #   0.upto(first_layer_length-1) do |i|
-    #     @comments << subreddit[1]["data"]["children"][i]["data"]["body"]
-    #   end
-    # end
-    #
-    # def first_layer_length
-    #   subreddit[1]["data"]["children"].length
-    # end
+    # /r/news/search.json?q=#{@searchterm}&restrict_sr=on&sort=relevance&t=week
 
   end
 

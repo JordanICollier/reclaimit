@@ -1,7 +1,6 @@
 require 'faraday'
 require 'json'
 require 'dotenv'
-
 Dotenv.load
 
 module Reclaimit
@@ -23,10 +22,9 @@ module Reclaimit
     def subreddit
       response = @reddit.get do |req|
         req.url "/r/#{@subreddit}.json"
-        req.headers['Reddit-Token'] = ENV['REDDIT_TOKEN']
         req.headers['Content-Type'] = 'application/json'
       end
-    
+
       JSON.parse(response.body)["data"]["children"].map do |post_data|
         Post.new(post_data)
       end

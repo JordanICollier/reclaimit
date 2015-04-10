@@ -9,14 +9,14 @@ module Reclaimit
 
     attr_accessor :comments
 
-    def initialize
+    def initialize(subreddit)
       @reddit = Faraday.new(:url => 'https://www.reddit.com') do |faraday|
         faraday.request  :url_encoded             # form-encode POST params
         faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
       @comments = []
-      @subreddit = "Earthporn"
+      @subreddit = subreddit
     end
 
     def subreddit

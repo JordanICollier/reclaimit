@@ -1,5 +1,12 @@
 class Post < Reclaimit::Fetcher
-  attr_reader :num_comments
+  attr_reader :approved_by,:archived,:author,:author_flair_css_class,
+              :author_flair_text,:banned_by,:clicked,:created,:created_utc,
+              :distinguished,:domain,:downs,:edited,:gilded,:hidden,:id,
+              :is_self,:likes,:link_flair_css_class,:link_flair_text,:media,
+              :media_embed,:mod_reports,:name,:num_comments,:num_reports,
+              :over_18,:permalink,:report_reasons,:saved,:score,:secure_media,
+              :secure_media_embed,:selftext,:selftext_html,:stickied,:subreddit,
+              :subreddit_id,:thumbnail,:title,:ups,:url,:user_reports,:visited
 
   def initialize(data)
     @approved_by = data["data"]["approved_by"]

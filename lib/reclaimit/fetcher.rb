@@ -4,7 +4,6 @@ require 'dotenv'
 Dotenv.load
 
 module Reclaimit
-
   class Fetcher
 
     attr_accessor :comments
@@ -30,8 +29,5 @@ module Reclaimit
       end
     end
 
-    # /r/news/search.json?q=#{@searchterm}&restrict_sr=on&sort=relevance&t=week
-
   end
-
 end

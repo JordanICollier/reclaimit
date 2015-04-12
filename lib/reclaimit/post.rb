@@ -55,6 +55,7 @@ class Post < Reclaimit::Fetcher
     @visited = data["data"]["visited"]
   end
 
+  # TEST THIS SECTION, FROM PRECIOUS REDDIT API PROJECT!
   # grab the first page posts
   # def posts
   #   0.upto(posts_length-1) do |i|
